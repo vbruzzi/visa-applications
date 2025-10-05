@@ -4,5 +4,5 @@ import LeadsTable from "./leads-table";
 export default async function LeadsPage() {
   const leads = await getLeads();
 
-  return <LeadsTable leads={leads} />;
+  return <LeadsTable data={leads} />;
 }

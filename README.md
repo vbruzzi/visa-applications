@@ -2,7 +2,7 @@
 
 - [x] Next.js
 - [x] CSS/CSS-in-JS
-- [ ] \*Mocked API calls use Next.js API
+- [x] \*Mocked API calls use Next.js API
 - [ ] \*Unit tests
 - [ ] \*Responsive web pages
 - [x] \*Typescript
@@ -26,9 +26,9 @@
   - [x] Search bar
   - [x] Status filter
   - [x] Table with Name, submitted (date), status, country
-  - [ ] button on row that allows change the status on table
-  - [ ] Paginated table
-  - [ ] Shows list of prospects
+  - [x] button on row that allows change the status on table
+  - [x] Paginated table
+  - [x] Shows list of prospects
   - [ ] \*State management library for handling prospect state
 
 * = Bonus

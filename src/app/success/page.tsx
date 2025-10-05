@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/_components/inputs";
 
 export default function SuccessPage() {
   return (
@@ -10,11 +11,8 @@ export default function SuccessPage() {
           Expect an email back from hello@visaapplications.com
         </p>
 
-        <Link
-          href="/"
-          className="inline-block mt-6 px-6 py-3 bg-black text-white font-bold rounded-md hover:bg-gray-800 transition-colors"
-        >
-          Go Back to Homepage
+        <Link href="/" className="mt-6">
+          <Button>Go Back to Homepage</Button>
         </Link>
       </div>
     </div>

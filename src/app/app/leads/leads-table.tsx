@@ -5,19 +5,19 @@ import { DataTable } from "@/_components/data-table";
 import { ColumnDef } from "@tanstack/react-table";
 import { Lead } from "@/stores/lead-store";
 import { useLeadStore } from "@/providers/lead-store-provider";
+import { Button } from "@/_components/inputs";
 
 interface LeadsTableProps {
-  leads: Lead[];
+  data: Lead[];
 }
 
-export default function LeadsTable({ leads }: LeadsTableProps) {
-  const setLeads = useLeadStore((state) => state.setLeads);
-  const storedLeads = useLeadStore((state) => state.leads);
+export default function LeadsTable({ data }: LeadsTableProps) {
+  const { setLeads, leads, changeStatus } = useLeadStore((state) => state);
 
   // Store the leads data in Zustand store when component mounts or leads change
   useEffect(() => {
-    setLeads(leads);
-  }, [leads, setLeads]);
+    setLeads(data);
+  }, [data, setLeads]);
 
   const columns: ColumnDef<Lead>[] = [
     {
@@ -62,7 +62,27 @@ export default function LeadsTable({ leads }: LeadsTableProps) {
       header: "Country",
       accessorKey: "countryOfCitizenship",
     },
+    {
+      id: "actions",
+      cell: ({ row }) => {
+        const lead = row.original;
+        const status = lead.status;
+
+        if (status === "PENDING") {
+          return (
+            <Button
+              onClick={() => changeStatus(lead.id, "REACHED_OUT")}
+              variant="ghost"
+            >
+              Update Status
+            </Button>
+          );
+        }
+        return null;
+      },
+      header: "",
+    },
   ];
 
-  return <DataTable data={storedLeads} columns={columns} pageSize={5} />;
+  return <DataTable data={leads} columns={columns} pageSize={5} />;
 }
