@@ -1,6 +1,6 @@
 interface TextInputProps {
   id?: string;
-  type?: "text" | "email" | "url" | "search";
+  type?: "text" | "email" | "url" | "search" | "password";
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
