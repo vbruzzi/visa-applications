@@ -31,7 +31,7 @@ export default function SelectInput({
   const isValid = error === undefined || error === "" || error === false;
   const errorMessage = typeof error === "string" ? error : "";
 
-  const baseSelectClasses = `w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white ${
+  const baseSelectClasses = `w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none h-[42px] ${
     !isValid
       ? "border-red-500 focus:ring-red-500 focus:border-red-500"
       : "border-gray-300"

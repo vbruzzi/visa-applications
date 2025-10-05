@@ -49,7 +49,11 @@ export default function DataTable<TData>({
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
     onGlobalFilterChange: setGlobalFilter,
+    state: {
+      globalFilter: globalFilter,
+    },
   });
+  console.log(globalFilter);
 
   return (
     <div className="w-full">

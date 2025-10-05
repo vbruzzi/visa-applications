@@ -18,13 +18,10 @@ export default function Filter<TData, TValue>({
     const facets = column?.getFacetedUniqueValues();
     const sortedUniqueValues = Array.from(facets?.keys() ?? []).sort();
 
-    return [
-      { value: "", label: "All" },
-      ...sortedUniqueValues.map((value) => ({
-        value: String(value),
-        label: String(value),
-      })),
-    ];
+    return sortedUniqueValues.map((value) => ({
+      value: String(value),
+      label: String(value),
+    }));
   }, [column]);
 
   return (
@@ -36,6 +33,7 @@ export default function Filter<TData, TValue>({
       }}
       options={uniqueValues}
       label={title}
+      placeholder="All"
     />
   );
 }

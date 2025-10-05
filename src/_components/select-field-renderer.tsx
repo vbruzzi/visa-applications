@@ -35,7 +35,6 @@ const SelectFieldRenderer = ({
       label={label}
       required={required}
       error={errors}
-      placeholder="Select an option"
     />
   );
 };
