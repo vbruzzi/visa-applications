@@ -4,11 +4,12 @@ import { JsonForms } from "@jsonforms/react";
 import { vanillaCells } from "@jsonforms/vanilla-renderers";
 import { useState } from "react";
 import { customRenderers } from "@/_components";
+import { redirect } from "next/navigation";
 
-// JSON Schema defining the structure of the form data
+// TODO: get this from a mocked API endpoint
 const schema = {
   type: "object",
-  required: ["firstName", "lastName", "email", "countryOfCitizenship", "visas"],
+  required: ["firstName", "lastName", "email", "nationality", "visas"],
   properties: {
     firstName: {
       type: "string",
@@ -117,31 +118,12 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log(errors);
     if (errors.length > 0) {
       return;
     }
 
-    try {
-      // Mock API call - replace with actual API endpoint
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        alert("Form submitted successfully!");
-        // Redirect to confirmation page
-        // router.push('/confirmation');
-      } else {
-        alert("Failed to submit form");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form");
-    }
+    redirect("/success");
   };
 
   return (
@@ -149,7 +131,7 @@ export default function Home() {
       <div className="max-w-3xl mx-auto">
         <div className="bg-white shadow-md rounded-lg p-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Want to udnerstand your visa options?
+            Want to understand your visa options?
           </h1>
           <p className="text-gray-600 mb-8">
             Submit the form below and our team of experienced attorneys will
@@ -191,19 +173,6 @@ export default function Home() {
               </button>
             </div>
           </form>
-
-          {errors.length > 0 && (
-            <div className="mt-6 bg-red-50 border border-red-200 rounded-md p-4">
-              <h3 className="text-red-800 font-medium mb-2">
-                Please fix the following errors:
-              </h3>
-              <ul className="list-disc list-inside text-red-700 text-sm">
-                {errors.map((error, index) => (
-                  <li key={index}>{error.message}</li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
       </div>
     </div>
