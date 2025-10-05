@@ -1,7 +1,7 @@
 ## General Requirement
 
 - [x] Next.js
-- [ ] CSS/CSS-in-JS
+- [x] CSS/CSS-in-JS
 - [ ] \*Mocked API calls use Next.js API
 - [ ] \*Unit tests
 - [ ] \*Responsive web pages
@@ -10,24 +10,25 @@
 
 ## Pages
 
-- [ ] Public form for prospects
+- [ x] Public form for prospects
   - [ ] Matches design
-  - [ ] Has fields: First name, last name, email, country of citizenship, LinkedIn/personal website, visas you're interested in, resume upload, text area comments/notes
-  - [ ] Form validation
+  - [x] Has fields: First name, last name, email, country of citizenship, LinkedIn/personal website, visas you're interested in, resume upload, text area comments/notes
+  - [x] Form validation
   - [ ] File upload for CV
-  - [ ] \*Json Forms w/ customizable forms
-  - [ ] \*Form validation feedback/error helpers
-- [ ] Confirmation page after submission
-  - [ ] Redirect back home button
+  - [x] \*Json Forms w/ customizable forms
+  - [x] \*Form validation feedback/error helpers
+- [x] Confirmation page after submission
+  - [x] Redirect back home button
   - [ ] Matches design
 - [ ] Internal page for viewing and updating prospect status
+  - [ ] Secured behind auth
   - [ ] Matches design
-  - [ ] Search bar
-  - [ ] Status filter
-  - [ ] Table with Name, submitted (date), status, country, button to change status
+  - [x] Search bar
+  - [x] Status filter
+  - [x] Table with Name, submitted (date), status, country
+  - [ ] button on row that allows change the status on table
   - [ ] Paginated table
   - [ ] Shows list of prospects
-  - [ ] Must be secured behind authentication
   - [ ] \*State management library for handling prospect state
 
 * = Bonus

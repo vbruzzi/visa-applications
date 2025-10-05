@@ -12,6 +12,7 @@
     "@jsonforms/core": "^3.6.0",
     "@jsonforms/react": "^3.6.0",
     "@jsonforms/vanilla-renderers": "^3.6.0",
+    "@tanstack/react-table": "^8.21.3",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"

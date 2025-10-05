@@ -9,12 +9,16 @@ import FileUploadRenderer, { fileUploadTester } from "./file-upload-renderer";
 import VerticalLayoutRenderer, {
   verticalLayoutTester,
 } from "./vertical-layout-renderer";
+import SelectFieldRenderer, {
+  selectFieldTester,
+} from "./select-field-renderer";
 
 export const customRenderers = [
   { tester: verticalLayoutTester, renderer: VerticalLayoutRenderer },
   { tester: emailFieldTester, renderer: EmailFieldRenderer },
   { tester: urlFieldTester, renderer: UrlFieldRenderer },
   { tester: checkboxGroupTester, renderer: CheckboxGroupRenderer },
+  { tester: selectFieldTester, renderer: SelectFieldRenderer },
   { tester: fileUploadTester, renderer: FileUploadRenderer },
   { tester: textAreaTester, renderer: TextAreaRenderer },
   { tester: textFieldTester, renderer: TextFieldRenderer },
