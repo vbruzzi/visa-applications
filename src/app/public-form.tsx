@@ -8,6 +8,7 @@ import { FormSchema, VisaApplicationData } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { submitVisaApplication } from "./actions/submissions";
 import Info from "@/_components/icons/info";
+import { Button } from "@/_components/inputs";
 
 interface PublicFormProps {
   formSchema: FormSchema;
@@ -50,7 +51,7 @@ export default function PublicForm({ formSchema }: PublicFormProps) {
       <div className="max-w-3xl mx-auto">
         <div className="rounded-lg p-8">
           <Info />
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">
+          <h1 className="text-3xl font-bold mb-2 text-center">
             Want to understand your visa options?
           </h1>
           <p className="font-bold mb-8 text-center">
@@ -78,21 +79,14 @@ export default function PublicForm({ formSchema }: PublicFormProps) {
             />
 
             <div className="mt-8 flex gap-4">
-              <button
+              <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium disabled:bg-blue-400 disabled:cursor-not-allowed"
+                variant="primary"
+                className="flex-1"
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
-              </button>
-              <button
-                type="button"
-                onClick={() => setData({})}
-                disabled={isSubmitting}
-                className="px-6 py-3 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Reset
-              </button>
+              </Button>
             </div>
           </form>
         </div>

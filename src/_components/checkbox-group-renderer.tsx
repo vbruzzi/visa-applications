@@ -34,9 +34,9 @@ const CheckboxGroupRenderer = ({
 
   return (
     <div className="mb-6">
-      <label className="block text-sm font-medium text-gray-700 mb-3">
+      <label className="block text-sm font-medium mb-3 text-gray-400">
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && label && <span className="text-red-500 ml-1">*</span>}
       </label>
       <div className="space-y-3">
         {options.map((option: string) => (
@@ -51,7 +51,7 @@ const CheckboxGroupRenderer = ({
             />
             <label
               htmlFor={`${path}-${option}`}
-              className="ml-3 text-sm text-gray-700 cursor-pointer"
+              className="ml-3 text-sm cursor-pointer text-gray-900"
             >
               {option}
             </label>

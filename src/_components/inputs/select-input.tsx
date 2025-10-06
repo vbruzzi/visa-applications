@@ -31,53 +31,35 @@ export default function SelectInput({
   const isValid = error === undefined || error === "" || error === false;
   const errorMessage = typeof error === "string" ? error : "";
 
-  const baseSelectClasses = `w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none h-[42px] ${
-    !isValid
-      ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-      : "border-gray-300"
+  // Use label as placeholder if no explicit placeholder is provided
+  const effectivePlaceholder =
+    placeholder === "Select an option" && label ? label : placeholder;
+
+  const baseSelectClasses = `w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none h-[42px] ${
+    value ? "text-gray-900" : "text-gray-400"
+  } ${
+    !isValid ? "border-red-500 focus:ring-red-500 focus:border-red-500" : ""
   } ${className}`;
 
-  const select = (
-    <select
-      id={id}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      required={required}
-      disabled={disabled}
-      className={baseSelectClasses}
-    >
-      <option value="">{placeholder}</option>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
-  );
-
-  // If no label, return just the select
-  if (!label) {
-    return (
-      <div>
-        {select}
-        {!isValid && errorMessage && (
-          <p className="text-red-600 text-sm mt-1">{errorMessage}</p>
-        )}
-      </div>
-    );
-  }
-
-  // Return select with label wrapper
   return (
     <div className="mb-6">
-      <label
-        htmlFor={id}
-        className="block text-sm font-medium text-gray-700 mb-2"
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        required={required}
+        disabled={disabled}
+        className={baseSelectClasses}
       >
-        {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
-      </label>
-      {select}
+        <option value="" className="text-gray-400">
+          {effectivePlaceholder}
+        </option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       {!isValid && errorMessage && (
         <p className="text-red-600 text-sm mt-1">{errorMessage}</p>
       )}

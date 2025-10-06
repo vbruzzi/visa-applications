@@ -2,10 +2,12 @@ import { rankWith, uiTypeIs } from "@jsonforms/core";
 import { withJsonFormsLayoutProps } from "@jsonforms/react";
 import Dice from "./icons/dice";
 import Info from "./icons/info";
+import Heart from "./icons/heart";
 
 const iconComponents = {
   dice: Dice,
   info: Info,
+  heart: Heart,
 } as const;
 
 type IconName = keyof typeof iconComponents;
@@ -26,7 +28,7 @@ interface InfoDisplayProps {
 const InfoDisplayRenderer = ({ uischema }: InfoDisplayProps) => {
   const iconName = uischema.options?.icon;
   const text = uischema.options?.text;
-  const iconSize = uischema.options?.iconSize || 32;
+  const iconSize = uischema.options?.iconSize || 16;
   const iconColor = uischema.options?.iconColor || "#1C274C";
   const className = uischema.options?.className || "";
 
@@ -39,9 +41,7 @@ const InfoDisplayRenderer = ({ uischema }: InfoDisplayProps) => {
           <IconComponent width={iconSize} height={iconSize} color={iconColor} />
         </div>
       )}
-      {text && (
-        <p className="text-gray-600 text-sm max-w-md">{text}</p>
-      )}
+      {text && <h1 className="text-3xl font-bold mb-2 text-center">{text}</h1>}
     </div>
   );
 };

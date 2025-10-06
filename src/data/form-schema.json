@@ -58,7 +58,7 @@
             },
             "visas": {
                 "type": "array",
-                "title": "Visas categories of interest?",
+                "title": "",
                 "items": {
                     "type": "string",
                     "enum": [
@@ -73,13 +73,13 @@
             },
             "resume": {
                 "type": "string",
-                "title": "Resume Upload",
-                "description": "Upload your CV/Resume"
+                "title": "Upload your CV/Resume",
+                "description": ""
             },
             "comments": {
                 "type": "string",
-                "title": "How can we help you?",
-                "description": "What is your current status and when does it expire? What is your past immigration history? Are you looking for long-term permanent residency or short-term employment visa or both? Are there any timeline considerations?"
+                "title": "What is your current status and when does it expire? What is your past immigration history? Are you looking for long-term permanent residency or short-term employment visa or both? Are there any timeline considerations?",
+                "description": ""
             }
         }
     },
@@ -110,6 +110,13 @@
                 "scope": "#/properties/personalWebsite"
             },
             {
+                "type": "InfoDisplay",
+                "options": {
+                    "icon": "dice",
+                    "text": "Visa categories of interest?"
+                }
+            },
+            {
                 "type": "Control",
                 "scope": "#/properties/visas",
                 "options": {
@@ -121,6 +128,13 @@
                 "scope": "#/properties/resume",
                 "options": {
                     "format": "file"
+                }
+            },
+            {
+                "type": "InfoDisplay",
+                "options": {
+                    "icon": "heart",
+                    "text": "How can we help you?"
                 }
             },
             {

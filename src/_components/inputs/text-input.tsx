@@ -26,48 +26,25 @@ export default function TextInput({
   const isValid = error === undefined || error === "" || error === false;
   const errorMessage = typeof error === "string" ? error : "";
 
-  const baseInputClasses = `w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-    !isValid
-      ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-      : "border-gray-300"
+  // Use label as placeholder if no explicit placeholder is provided
+  const effectivePlaceholder = placeholder || label || "";
+
+  const baseInputClasses = `w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder:text-gray-400 text-gray-900 ${
+    !isValid ? "border-red-500 focus:ring-red-500 focus:border-red-500" : ""
   } ${className}`;
 
-  const input = (
-    <input
-      type={type}
-      id={id}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-      required={required}
-      disabled={disabled}
-      className={baseInputClasses}
-    />
-  );
-
-  // If no label, return just the input
-  if (!label) {
-    return (
-      <div>
-        {input}
-        {!isValid && errorMessage && (
-          <p className="text-red-600 text-sm mt-1">{errorMessage}</p>
-        )}
-      </div>
-    );
-  }
-
-  // Return input with label wrapper
   return (
     <div className="mb-6">
-      <label
-        htmlFor={id}
-        className="block text-sm font-medium text-gray-700 mb-2"
-      >
-        {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
-      </label>
-      {input}
+      <input
+        type={type}
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={effectivePlaceholder}
+        required={required}
+        disabled={disabled}
+        className={baseInputClasses}
+      />
       {!isValid && errorMessage && (
         <p className="text-red-600 text-sm mt-1">{errorMessage}</p>
       )}

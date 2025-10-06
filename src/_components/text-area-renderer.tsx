@@ -3,7 +3,7 @@ import {
   rankWith,
   isStringControl,
   and,
-  schemaMatches,
+  optionIs,
 } from "@jsonforms/core";
 import { withJsonFormsControlProps } from "@jsonforms/react";
 
@@ -18,28 +18,20 @@ const TextAreaRenderer = ({
 }: ControlProps) => {
   const isValid = errors === undefined || errors === "";
   const description = schema.description;
+  const placeholder = description || label || "";
 
   return (
     <div className="mb-6">
-      <label
-        htmlFor={path}
-        className="block text-sm font-medium text-gray-700 mb-2"
-      >
-        {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
-      </label>
-      {description && (
-        <p className="text-sm text-gray-500 mb-2">{description}</p>
-      )}
       <textarea
         id={path}
         value={data || ""}
         onChange={(e) => handleChange(path, e.target.value)}
         rows={5}
-        className={`w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-y ${
+        placeholder={placeholder}
+        className={`w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize placeholder:text-gray-400 text-gray-900 min-h-[120px] text-base leading-relaxed ${
           !isValid
             ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-            : "border-gray-300"
+            : ""
         }`}
         required={required}
       />
@@ -53,14 +45,5 @@ export default withJsonFormsControlProps(TextAreaRenderer);
 // Tester: applies to string controls with multi option in uischema
 export const textAreaTester = rankWith(
   4,
-  and(
-    isStringControl,
-    schemaMatches((schema) => {
-      // This will match textarea fields - we'll use uischema options to determine
-      return (
-        schema.title === "How can we help you?" ||
-        schema.title === "Comments/Notes"
-      );
-    })
-  )
+  and(isStringControl, optionIs("multi", true))
 );
