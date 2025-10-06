@@ -7,6 +7,7 @@ import { customRenderers } from "@/_components";
 import { FormSchema, VisaApplicationData } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { submitVisaApplication } from "./actions/submissions";
+import Info from "@/_components/icons/info";
 
 interface PublicFormProps {
   formSchema: FormSchema;
@@ -45,13 +46,14 @@ export default function PublicForm({ formSchema }: PublicFormProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white shadow-md rounded-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="rounded-lg p-8">
+          <Info />
+          <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">
             Want to understand your visa options?
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="font-bold mb-8 text-center">
             Submit the form below and our team of experienced attorneys will
             review your information and send a preliminary assessment of your
             case based on your goals.

@@ -27,7 +27,29 @@
             "nationality": {
                 "type": "string",
                 "minLength": 1,
-                "title": "Country of Citizenship"
+                "title": "Country of Citizenship",
+                "enum": [
+                    "Korea",
+                    "Canada",
+                    "Brazil",
+                    "Pakistan",
+                    "China",
+                    "India",
+                    "Mexico",
+                    "United Kingdom",
+                    "Germany",
+                    "France",
+                    "Japan",
+                    "Australia",
+                    "Italy",
+                    "Spain",
+                    "Nigeria",
+                    "Egypt",
+                    "South Africa",
+                    "Argentina",
+                    "Colombia",
+                    "Turkey"
+                ]
             },
             "personalWebsite": {
                 "type": "string",
@@ -78,7 +100,10 @@
             },
             {
                 "type": "Control",
-                "scope": "#/properties/nationality"
+                "scope": "#/properties/nationality",
+                "options": {
+                    "format": "select"
+                }
             },
             {
                 "type": "Control",

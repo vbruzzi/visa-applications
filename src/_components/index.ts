@@ -12,9 +12,13 @@ import VerticalLayoutRenderer, {
 import SelectFieldRenderer, {
   selectFieldTester,
 } from "./select-field-renderer";
+import InfoDisplayRenderer, {
+  infoDisplayTester,
+} from "./info-display-renderer";
 
 export const customRenderers = [
   { tester: verticalLayoutTester, renderer: VerticalLayoutRenderer },
+  { tester: infoDisplayTester, renderer: InfoDisplayRenderer },
   { tester: emailFieldTester, renderer: EmailFieldRenderer },
   { tester: urlFieldTester, renderer: UrlFieldRenderer },
   { tester: checkboxGroupTester, renderer: CheckboxGroupRenderer },

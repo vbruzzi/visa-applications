@@ -22,7 +22,7 @@
   - [ ] Matches design
 - [x] Internal page for viewing and updating prospect status
   - [x] Secured behind auth
-  - [ ] Matches design
+  - [] Matches design
   - [x] Search bar
   - [x] Status filter
   - [x] Table with Name, submitted (date), status, country
