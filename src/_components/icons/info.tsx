@@ -7,10 +7,16 @@ export default function Info(props: IconProps) {
     color = defaultProps.color,
   } = props;
 
-  const className = `w-${width} h-${height} mx-auto mb-4`;
+  const className = `flex justify-center w-full h-full`;
   return (
     <div className={className}>
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        height={height}
+        width={width}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"

@@ -7,10 +7,12 @@ export default function Info(props: IconProps) {
     color = defaultProps.color,
   } = props;
 
-  const className = `w-${width} h-${height} mx-auto mb-4`;
+  const className = `flex justify-center`;
   return (
     <div className={className}>
       <svg
+        height={height}
+        width={width}
         fill={color}
         viewBox="0 0 32 32"
         version="1.1"

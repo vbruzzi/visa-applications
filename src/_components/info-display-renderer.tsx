@@ -28,7 +28,7 @@ interface InfoDisplayProps {
 const InfoDisplayRenderer = ({ uischema }: InfoDisplayProps) => {
   const iconName = uischema.options?.icon;
   const text = uischema.options?.text;
-  const iconSize = uischema.options?.iconSize || 16;
+  const iconSize = uischema.options?.iconSize || 100;
   const iconColor = uischema.options?.iconColor || "#1C274C";
   const className = uischema.options?.className || "";
 

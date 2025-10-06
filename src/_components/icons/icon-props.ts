@@ -1,6 +1,6 @@
 export const defaultProps = {
-  width: 16,
-  height: 16,
+  width: 120,
+  height: 120,
   color: "#1C274C",
 };
 
