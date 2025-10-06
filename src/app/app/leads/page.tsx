@@ -1,4 +1,4 @@
-import { getLeads } from "./actions";
+import { getLeads } from "@/app/actions/leads";
 import LeadsTable from "./leads-table";
 
 export default async function LeadsPage() {

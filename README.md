@@ -20,8 +20,8 @@
 - [x] Confirmation page after submission
   - [x] Redirect back home button
   - [ ] Matches design
-- [ ] Internal page for viewing and updating prospect status
-  - [ ] Secured behind auth
+- [x] Internal page for viewing and updating prospect status
+  - [x] Secured behind auth
   - [ ] Matches design
   - [x] Search bar
   - [x] Status filter
@@ -29,6 +29,6 @@
   - [x] button on row that allows change the status on table
   - [x] Paginated table
   - [x] Shows list of prospects
-  - [ ] \*State management library for handling prospect state
+  - [x] \*State management library for handling prospect state
 
 * = Bonus
