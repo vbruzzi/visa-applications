@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Visa Help",
+  title: "Visa Applications",
   description: "Helping individuals navigate the U.S. visa process",
 };
 
