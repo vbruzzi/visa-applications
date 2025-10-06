@@ -10,7 +10,7 @@
 
 ## Pages
 
-- [ x] Public form for prospects
+- [x] Public form for prospects
   - [ ] Matches design
   - [x] Has fields: First name, last name, email, country of citizenship, LinkedIn/personal website, visas you're interested in, resume upload, text area comments/notes
   - [x] Form validation

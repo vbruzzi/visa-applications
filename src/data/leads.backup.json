@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "firstName": "Joe",
+        "lastName": "Pesci",
+        "submitted": "2025-09-01T10:00:00Z",
+        "status": "PENDING",
+        "countryOfCitizenship": "Canada"
+    },
+    {
+        "id": 1,
+        "firstName": "Marisa",
+        "lastName": "Tomei",
+        "submitted": "2025-09-02T11:30:00Z",
+        "status": "REACHED_OUT",
+        "countryOfCitizenship": "Italy"
+    }
+]

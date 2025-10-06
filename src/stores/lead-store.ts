@@ -1,13 +1,5 @@
+import { Lead } from "@/lib/types";
 import { createStore } from "zustand/vanilla";
-
-export type Lead = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  submitted: Date;
-  status: string;
-  countryOfCitizenship: string;
-};
 
 export type LeadState = {
   leads: Lead[];

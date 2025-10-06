@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import { DataTable } from "@/_components/data-table";
 import { ColumnDef } from "@tanstack/react-table";
-import { Lead } from "@/stores/lead-store";
 import { useLeadStore } from "@/providers/lead-store-provider";
 import { Button } from "@/_components/inputs";
+import { Lead } from "@/lib/types";
 
 interface LeadsTableProps {
   data: Lead[];

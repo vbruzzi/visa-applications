@@ -1,5 +1,5 @@
+import { Lead } from "@/lib/types";
 import { useEffect, useState } from "react";
-import { Lead } from "@/stores/lead-store";
 
 const leads: Lead[] = [
   {

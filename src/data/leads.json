@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "firstName": "Joe",
+    "lastName": "Pesci",
+    "submitted": "2025-09-01T10:00:00Z",
+    "status": "PENDING",
+    "countryOfCitizenship": "Canada"
+  },
+  {
+    "id": 1,
+    "firstName": "Marisa",
+    "lastName": "Tomei",
+    "submitted": "2025-09-02T11:30:00Z",
+    "status": "REACHED_OUT",
+    "countryOfCitizenship": "Italy"
+  },
+  {
+    "id": 2,
+    "firstName": "James",
+    "lastName": "Hoffman",
+    "submitted": "2025-10-06T00:26:40.016Z",
+    "status": "PENDING",
+    "countryOfCitizenship": "Britain"
+  }
+]

@@ -1,0 +1,111 @@
+{
+    "schema": {
+        "type": "object",
+        "required": [
+            "firstName",
+            "lastName",
+            "email",
+            "nationality",
+            "visas"
+        ],
+        "properties": {
+            "firstName": {
+                "type": "string",
+                "minLength": 1,
+                "title": "First Name"
+            },
+            "lastName": {
+                "type": "string",
+                "minLength": 1,
+                "title": "Last Name"
+            },
+            "email": {
+                "type": "string",
+                "format": "email",
+                "title": "Email"
+            },
+            "nationality": {
+                "type": "string",
+                "minLength": 1,
+                "title": "Country of Citizenship"
+            },
+            "personalWebsite": {
+                "type": "string",
+                "format": "uri",
+                "title": "LinkedIn or Personal Website"
+            },
+            "visas": {
+                "type": "array",
+                "title": "Visas categories of interest?",
+                "items": {
+                    "type": "string",
+                    "enum": [
+                        "O-1",
+                        "EB-1A",
+                        "EB-2 NIW",
+                        "I don't know"
+                    ]
+                },
+                "uniqueItems": true,
+                "minItems": 1
+            },
+            "resume": {
+                "type": "string",
+                "title": "Resume Upload",
+                "description": "Upload your CV/Resume"
+            },
+            "comments": {
+                "type": "string",
+                "title": "How can we help you?",
+                "description": "What is your current status and when does it expire? What is your past immigration history? Are you looking for long-term permanent residency or short-term employment visa or both? Are there any timeline considerations?"
+            }
+        }
+    },
+    "uischema": {
+        "type": "VerticalLayout",
+        "elements": [
+            {
+                "type": "Control",
+                "scope": "#/properties/firstName"
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/lastName"
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/email"
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/nationality"
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/personalWebsite"
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/visas",
+                "options": {
+                    "format": "checkbox"
+                }
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/resume",
+                "options": {
+                    "format": "file"
+                }
+            },
+            {
+                "type": "Control",
+                "scope": "#/properties/comments",
+                "options": {
+                    "multi": true,
+                    "rows": 5
+                }
+            }
+        ]
+    }
+}
