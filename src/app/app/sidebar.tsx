@@ -54,7 +54,7 @@ export default function Sidebar() {
           w-64 md:w-[15%]
           flex flex-col
           border-r border-gray-200
-          bg-white
+          bg-gradient-to-b from-[#eef0d5] from-0% via-[#f7f8ec] via-25% to-white to-30%
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
