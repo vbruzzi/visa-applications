@@ -18,13 +18,16 @@ export default function LoginPage() {
       setError(result.error);
       setLoading(false);
     }
+
     // If successful, redirect happens in the action
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          Login to Dashboard
+        </h1>
 
         <form action={handleSubmit} className="space-y-4">
           <div className="mb-6">

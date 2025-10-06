@@ -4,10 +4,9 @@ import { JsonForms } from "@jsonforms/react";
 import { vanillaCells } from "@jsonforms/vanilla-renderers";
 import { useState } from "react";
 import { customRenderers } from "@/_components";
-import { VisaApplicationData } from "@/lib/types";
+import { FormSchema, VisaApplicationData } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { submitVisaApplication } from "./actions/submissions";
-import { FormSchema } from "./actions/schema";
 
 interface PublicFormProps {
   formSchema: FormSchema;
@@ -39,7 +38,7 @@ export default function PublicForm({ formSchema }: PublicFormProps) {
       }
     } catch (error) {
       console.error("Failed to submit application:", error);
-      // TODO: Show error message to user
+      // TODO: Display error message to user
     } finally {
       setIsSubmitting(false);
     }

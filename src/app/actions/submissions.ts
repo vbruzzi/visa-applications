@@ -11,6 +11,9 @@ import { VisaApplicationData } from "@/lib/types";
  */
 export async function submitVisaApplication(data: VisaApplicationData) {
   try {
+    // Data saved is different than the data submitted
+    // This is intentional because we're not using that on the backend.
+    // This also makes it easier to save things as json.
     await saveSubmission(data);
 
     return { success: true };

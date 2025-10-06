@@ -14,7 +14,7 @@
   - [ ] Matches design
   - [x] Has fields: First name, last name, email, country of citizenship, LinkedIn/personal website, visas you're interested in, resume upload, text area comments/notes
   - [x] Form validation
-  - [ ] File upload for CV
+  - [x] File upload for CV
   - [x] \*Json Forms w/ customizable forms
   - [x] \*Form validation feedback/error helpers
 - [x] Confirmation page after submission

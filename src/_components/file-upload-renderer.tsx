@@ -6,9 +6,9 @@ import {
   optionIs,
 } from "@jsonforms/core";
 import { withJsonFormsControlProps } from "@jsonforms/react";
+import { useState } from "react";
 
 const FileUploadRenderer = ({
-  data,
   handleChange,
   path,
   label,
@@ -18,15 +18,27 @@ const FileUploadRenderer = ({
 }: ControlProps) => {
   const isValid = errors === undefined || errors === "";
   const description = schema.description;
+  const [fileName, setFileName] = useState<string>("");
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Store the file name for now - in production you'd upload to server
-      handleChange(path, file.name);
+      try {
+        // Read file as base64
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64 = reader.result as string;
+          // Store base64 string (includes data:mime;base64, prefix)
+          handleChange(path, base64);
+          handleChange(path + "FileName", file.name);
+          setFileName(file.name);
+        };
+        reader.readAsDataURL(file);
+      } catch (error) {
+        console.error("Failed to read file:", error);
+      }
     }
   };
-
   return (
     <div className="mb-6">
       <label
@@ -49,7 +61,9 @@ const FileUploadRenderer = ({
         }`}
         required={required}
       />
-      {data && <p className="text-sm text-gray-600 mt-2">Selected: {data}</p>}
+      {fileName && (
+        <p className="text-sm text-gray-600 mt-2">Selected: {fileName}</p>
+      )}
       {!isValid && <p className="text-red-600 text-sm mt-1">{errors}</p>}
     </div>
   );

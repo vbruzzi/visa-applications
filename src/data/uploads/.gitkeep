@@ -1,0 +1,2 @@
+# Uploaded resumes will be stored here
+# In production, these would be uploaded to cloud storage (S3, Azure Blob, etc.)

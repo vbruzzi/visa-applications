@@ -7,8 +7,10 @@ export interface VisaApplicationData {
   nationality: string;
   personalWebsite?: string;
   visas: string[];
-  /** Base64 or file URL */
+  /** Base64 encoded file data */
   resume?: string;
+  /** Original filename of the uploaded resume */
+  resumeFileName?: string;
   comments?: string;
 }
 
