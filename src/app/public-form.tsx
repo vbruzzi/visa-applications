@@ -47,48 +47,62 @@ export default function PublicForm({ formSchema }: PublicFormProps) {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="rounded-lg p-8">
-          <Info />
-          <h1 className="text-3xl font-bold mb-2 text-center">
-            Want to understand your visa options?
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <div className="h-[50vh] bg-[#d9dea6] flex flex-col items-center justify-center">
+        <div className="max-w-3xl gap-5 flex flex-col">
+          <h1 className="font-black">Visa Applications</h1>
+          <h1 className="md:text-6xl sm:text-3xl text-3xl font-black text-left ">
+            <span className="block">Get An Assessment</span>
+            <span className="block">Of Your Immigration Case</span>
           </h1>
-          <p className="font-bold mb-8 text-center">
-            Submit the form below and our team of experienced attorneys will
-            review your information and send a preliminary assessment of your
-            case based on your goals.
-          </p>
+        </div>
+      </div>
 
-          <form onSubmit={handleSubmit}>
-            <JsonForms
-              schema={formSchema.schema}
-              uischema={formSchema.uischema}
-              data={data}
-              renderers={customRenderers}
-              cells={vanillaCells}
-              onChange={({ data, errors }) => {
-                setData(data);
-                setErrors(
-                  errors?.map((e) => ({
-                    message: e.message || "Validation error",
-                    dataPath: e.instancePath || "",
-                  })) || []
-                );
-              }}
-            />
+      {/* Form Section */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-lg p-8">
+            <Info />
+            <h1 className="md:text-3xl sm:text-xl font-bold mb-2 text-center">
+              Want to understand your visa options?
+            </h1>
+            <p className="md:font-bold sm:font-normal md:text-md sm:text-sm mb-8 text-center">
+              Submit the form below and our team of experienced attorneys will
+              review your information and send a preliminary assessment of your
+              case based on your goals.
+            </p>
 
-            <div className="mt-8 flex gap-4">
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                variant="primary"
-                className="flex-1"
-              >
-                {isSubmitting ? "Submitting..." : "Submit Application"}
-              </Button>
-            </div>
-          </form>
+            <form onSubmit={handleSubmit}>
+              <JsonForms
+                schema={formSchema.schema}
+                uischema={formSchema.uischema}
+                data={data}
+                renderers={customRenderers}
+                cells={vanillaCells}
+                onChange={({ data, errors }) => {
+                  setData(data);
+                  setErrors(
+                    errors?.map((e) => ({
+                      message: e.message || "Validation error",
+                      dataPath: e.instancePath || "",
+                    })) || []
+                  );
+                }}
+              />
+
+              <div className="mt-8 flex gap-4">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  variant="primary"
+                  className="flex-1"
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -36,6 +36,7 @@ export default function DataTable<TData>({
   columns,
   searchable = true,
   searchPlaceholder = "Search...",
+  pageSize = 5,
 }: DataTableProps<TData>) {
   const [globalFilter, setGlobalFilter] = useState("");
 
@@ -52,14 +53,14 @@ export default function DataTable<TData>({
     state: {
       globalFilter: globalFilter,
     },
+    initialState: { pagination: { pageSize: pageSize } },
   });
-  console.log(globalFilter);
 
   return (
     <div className="w-full">
-      {/* Search Bar */}
+      {/* Search bar & filters */}
       {searchable && (
-        <div className="mb-4 flex gap-1">
+        <div className="flex gap-1">
           <TextInput
             type="search"
             value={globalFilter ?? ""}
@@ -82,13 +83,13 @@ export default function DataTable<TData>({
       {/* Table */}
       <div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
                   >
                     {header.isPlaceholder ? null : (
                       <div
@@ -146,25 +147,8 @@ export default function DataTable<TData>({
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between mt-4">
+      <div className="flex justify-end justify-between mt-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-700">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount()}
-          </span>
-          <span className="text-sm text-gray-500">
-            ({data.length} total rows)
-          </span>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => table.setPageIndex(0)}
-            disabled={!table.getCanPreviousPage()}
-            className="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {"<<"}
-          </button>
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
@@ -172,19 +156,30 @@ export default function DataTable<TData>({
           >
             {"<"}
           </button>
+
+          {/* Page Numbers */}
+          {Array.from({ length: table.getPageCount() }, (_, i) => i).map(
+            (pageIndex) => (
+              <button
+                key={pageIndex}
+                onClick={() => table.setPageIndex(pageIndex)}
+                className={`px-3 py-1 border rounded-md text-sm font-medium ${
+                  table.getState().pagination.pageIndex === pageIndex
+                    ? "bg-blue-600 text-white border-blue-600"
+                    : "border-gray-300 text-gray-700 bg-white hover:bg-gray-50"
+                }`}
+              >
+                {pageIndex + 1}
+              </button>
+            )
+          )}
+
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
             className="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {">"}
-          </button>
-          <button
-            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-            disabled={!table.getCanNextPage()}
-            className="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {">>"}
           </button>
         </div>
       </div>

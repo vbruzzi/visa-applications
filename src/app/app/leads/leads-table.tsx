@@ -84,5 +84,5 @@ export default function LeadsTable({ data }: LeadsTableProps) {
     },
   ];
 
-  return <DataTable data={leads} columns={columns} pageSize={5} />;
+  return <DataTable data={leads} columns={columns} />;
 }
